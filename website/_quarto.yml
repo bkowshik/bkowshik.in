@@ -8,6 +8,7 @@ website:
       - href: index.qmd
         text: Home
       - href: projects.qmd
+      - href: open-source.qmd
       - href: learning.qmd
       - href: datasets.qmd
       - href: experiments.qmd
@@ -22,3 +23,6 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+
+execute:
+  freeze: auto
