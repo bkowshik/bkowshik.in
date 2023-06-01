@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Bhargav Kowshik"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+      - href: learning.qmd
+      - href: datasets.qmd
+      - href: experiments.qmd
+      - href: research.qmd
+      - href: blog.qmd
+    right:
+      - href: about.qmd
+  page-footer: "Built with ❤️ from Bengaluru, India"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

@@ -1,0 +1,20 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/bkowshik
+    - icon: kaggle
+      text: Kaggle
+      href: https://www.kaggle.com/bkowshik
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/bkowshik
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/bkowshik/
+
+---
