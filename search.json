@@ -7,6 +7,13 @@
     "text": "This is my first post. Welcome!"
   },
   {
+    "objectID": "learning.html",
+    "href": "learning.html",
+    "title": "Learning",
+    "section": "",
+    "text": "June, 2023\n\nAn Introduction to Statistical Learning - 2nd edition\nPractical Deep Learning for Coders - Fast.ai\nData Structures & Algorithms - AlgoExpert"
+  },
+  {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "Blog",
