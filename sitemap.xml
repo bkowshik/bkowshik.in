@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bkowshik.github.io/bkowshik.in/research.html</loc>
-    <lastmod>2023-06-01T13:25:14.634Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bkowshik.github.io/bkowshik.in/posts/welcome/index.html</loc>
-    <lastmod>2023-06-01T13:25:17.049Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bkowshik.github.io/bkowshik.in/open-source.html</loc>
-    <lastmod>2023-06-01T13:25:19.008Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bkowshik.github.io/bkowshik.in/learning.html</loc>
-    <lastmod>2023-06-01T13:25:20.469Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bkowshik.github.io/bkowshik.in/projects.html</loc>
-    <lastmod>2023-06-01T13:25:22.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bkowshik.github.io/bkowshik.in/about.html</loc>
-    <lastmod>2023-06-01T13:25:24.531Z</lastmod>
+    <loc>https://bkowshik.github.io/bkowshik.in/blog.html</loc>
+    <lastmod>2023-06-07T23:50:05.082Z</lastmod>
   </url>
   <url>
     <loc>https://bkowshik.github.io/bkowshik.in/datasets.html</loc>
-    <lastmod>2023-06-01T13:25:25.707Z</lastmod>
+    <lastmod>2023-06-01T12:48:20.631Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bkowshik.github.io/bkowshik.in/learning.html</loc>
+    <lastmod>2023-06-01T13:23:35.074Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bkowshik.github.io/bkowshik.in/posts/building-an-image-classifier/index.html</loc>
+    <lastmod>2023-06-08T00:58:42.872Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bkowshik.github.io/bkowshik.in/research.html</loc>
+    <lastmod>2023-06-01T12:48:20.689Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bkowshik.github.io/bkowshik.in/posts/welcome/index.html</loc>
+    <lastmod>2023-06-01T12:48:20.679Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bkowshik.github.io/bkowshik.in/open-source.html</loc>
+    <lastmod>2023-06-01T13:18:51.181Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bkowshik.github.io/bkowshik.in/projects.html</loc>
+    <lastmod>2023-06-01T12:48:20.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bkowshik.github.io/bkowshik.in/about.html</loc>
+    <lastmod>2023-06-01T12:48:20.615Z</lastmod>
   </url>
   <url>
     <loc>https://bkowshik.github.io/bkowshik.in/experiments.html</loc>
-    <lastmod>2023-06-01T13:25:27.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bkowshik.github.io/bkowshik.in/blog.html</loc>
-    <lastmod>2023-06-01T13:25:28.946Z</lastmod>
+    <lastmod>2023-06-01T12:48:20.636Z</lastmod>
   </url>
 </urlset>

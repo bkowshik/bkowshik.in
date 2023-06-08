@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Bhargav Kowshik">
-<meta name="dcterms.date" content="2023-06-01">
+<meta name="dcterms.date" content="2023-06-08">
 
-<title>Bhargav Kowshik - Hello, world!</title>
+<title>Bhargav Kowshik - FastAI . Building an Image Classifier</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -137,8 +171,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Hello, world!</h1>
-                      </div>
+      <h1 class="title">FastAI . Building an Image Classifier</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">deep learning</div>
+                <div class="quarto-category">fastai</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -154,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 1, 2023</p>
+        <p class="date">June 8, 2023</p>
       </div>
     </div>
     
@@ -166,7 +204,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#building-an-image-classifier" id="toc-building-an-image-classifier" class="nav-link active" data-scroll-target="#building-an-image-classifier">Building an Image Classifier</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-download-images" id="toc-step-1.-download-images" class="nav-link" data-scroll-target="#step-1.-download-images">Step 1. Download images</a></li>
+  <li><a href="#step-2.-create-datasets" id="toc-step-2.-create-datasets" class="nav-link" data-scroll-target="#step-2.-create-datasets">Step 2. Create datasets</a></li>
+  <li><a href="#fine-tune-pre-trained-model" id="toc-fine-tune-pre-trained-model" class="nav-link" data-scroll-target="#fine-tune-pre-trained-model">3. Fine tune pre-trained model</a></li>
+  <li><a href="#predict-class-label" id="toc-predict-class-label" class="nav-link" data-scroll-target="#predict-class-label">4. Predict class label</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul></li>
+  <li><a href="#hyperlinks" id="toc-hyperlinks" class="nav-link" data-scroll-target="#hyperlinks">Hyperlinks</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -174,9 +226,149 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is my first post. Welcome!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/healthy-food-vs-junk-food-samples.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Images from DuckDuckGo: Healthy food / Junk food</figcaption>
+</figure>
+</div>
+<p>As part of Lesson 1 of the <a href="https://course.fast.ai">Practical Deep Learning for Coders course by Fast AI</a>, I built some example classifiers.</p>
+<section id="building-an-image-classifier" class="level1">
+<h1>Building an Image Classifier</h1>
+<p>The basic steps in building a classifier are:</p>
+<ol type="1">
+<li>Download images</li>
+<li>Create datasets.</li>
+<li>Fine tune pre-trained model.</li>
+<li>Predict class label.</li>
+</ol>
+<section id="step-1.-download-images" class="level2">
+<h2 class="anchored" data-anchor-id="step-1.-download-images">Step 1. Download images</h2>
+<p>For these examples, images are downloaded from DuckDuckGo using the helper function <code>ddg_images</code> which takes in a search term and returns a list of image URLs. Another helper function <code>download_images</code> downloads images from these URLs. Images of each class (Ex: Cat) are part of separate directories.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> search_images(term, max_images<span class="op">=</span><span class="dv">200</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Search for images for the given text."""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Searching for '</span><span class="sc">{</span>term<span class="sc">}</span><span class="ss">'"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> L(ddg_images(term, max_results<span class="op">=</span>max_images)).itemgot(<span class="st">'image'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Download images for each of the classes into it's own directory.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> [<span class="st">'rice'</span>, <span class="st">'wheat'</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> Path(<span class="st">'cereals'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> classes:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    dest <span class="op">=</span> (path<span class="op">/</span>c)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    dest.mkdir(exist_ok<span class="op">=</span><span class="va">True</span>, parents<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    download_images(dest, urls<span class="op">=</span>search_images(<span class="ss">f'</span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">'</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    resize_images(path<span class="op">/</span>c, max_size<span class="op">=</span><span class="dv">400</span>, dest<span class="op">=</span>path<span class="op">/</span>c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2.-create-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="step-2.-create-datasets">Step 2. Create datasets</h2>
+<p>Images in directories are turned into tow datasets one for model training and another for model validation using the <code>DataBlock</code> class.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> DataBlock(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    blocks<span class="op">=</span>(ImageBlock, CategoryBlock),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    get_items<span class="op">=</span>get_image_files,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    splitter<span class="op">=</span>RandomSplitter(valid_pct<span class="op">=</span><span class="fl">0.2</span>, seed<span class="op">=</span><span class="dv">42</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    get_y<span class="op">=</span>parent_label,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    item_tfms<span class="op">=</span>[Resize(<span class="dv">192</span>, method<span class="op">=</span><span class="st">'squish'</span>)]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>).dataloaders(path, bs<span class="op">=</span><span class="dv">32</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fine-tune-pre-trained-model" class="level2">
+<h2 class="anchored" data-anchor-id="fine-tune-pre-trained-model">3. Fine tune pre-trained model</h2>
+<p>Next, we download pre-trained weights for a ResNet18 model and fine-tune the model on our dataset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/happy-face-vs-sad-face-performance.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Model fine tuning</figcaption>
+</figure>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> vision_learner(dls, resnet18, metrics<span class="op">=</span>error_rate)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>learn.fine_tune(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="predict-class-label" class="level2">
+<h2 class="anchored" data-anchor-id="predict-class-label">4. Predict class label</h2>
+<p>Finally, we make use of the <code>predict</code> method of the model class to get prediction on sample images.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/healthy-food-prediction.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Healthy food</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/junk-food-prediction.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Junk food</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> search_images(classes[<span class="dv">0</span>], max_images<span class="op">=</span><span class="dv">5</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>destination <span class="op">=</span> <span class="st">'sample.jpg'</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>download_url(url, destination, show_progress<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>label, _, probability <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'sample.jpg'</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This is: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(label))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Probability it's a </span><span class="sc">{}</span><span class="st"> is: </span><span class="sc">{:.4f}</span><span class="st">"</span>.<span class="bu">format</span>(classes[<span class="dv">0</span>], probability[<span class="dv">0</span>]))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.<span class="bu">open</span>(destination)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>im.to_thumb(<span class="dv">256</span>,<span class="dv">256</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/ship-vs-aeroplane-samples.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Ship / Aeroplane</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/happy-face-vs-sad-face-samples.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Happy face / Sad face</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/rice-vs-wheat-samples.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Rice / Wheat</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../static/images/building-an-image-classifier/bicycle-vs-car-samples.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Bicycle / Car</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="hyperlinks" class="level1">
+<h1>Hyperlinks</h1>
+<ul>
+<li><a href="https://course.fast.ai/Lessons/lesson1.html">Fast AI . Lesson 1. Getting started</a></li>
+<li><a href="https://www.kaggle.com/bkowshik/fast-ai-lesson-1-classifier-examples">Jupyter notebook on Kaggle - Fast AI . Lesson 1. Classifier examples</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
