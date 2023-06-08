@@ -7,12 +7,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: projects.qmd
-      - href: open-source.qmd
       - href: learning.qmd
-      - href: datasets.qmd
-      - href: experiments.qmd
-      - href: research.qmd
       - href: blog.qmd
     right:
       - href: about.qmd
