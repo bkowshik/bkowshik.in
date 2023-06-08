@@ -1,5 +1,5 @@
 ---
-title: "FastAI . Building an Image Classifier"
+title: "Fast AI . Building an Image Classifier"
 author: "Bhargav Kowshik"
 date: "2023-06-08"
 categories:
