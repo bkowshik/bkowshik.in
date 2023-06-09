@@ -7,7 +7,9 @@ categories:
     - fastai
 ---
 
+:::{.column-screen-inset}
 ![Images from DuckDuckGo: Healthy food / Junk food](/static/images/building-an-image-classifier/healthy-food-vs-junk-food-samples.png)
+:::
 
 As part of Lesson 1 of the [Practical Deep Learning for Coders course by Fast AI](https://course.fast.ai), I built some example classifiers.
 
