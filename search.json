@@ -1,65 +1,23 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Fast AI . Building an Image Classifier\n\n\n\n\n\n\n\ndeep learning\n\n\nfastai\n\n\n\n\n\n\n\n\n\n\n\nJun 8, 2023\n\n\nBhargav Kowshik\n\n\n\n\n\n\n  \n\n\n\n\nHello, world!\n\n\n\n\n\n\n\n\n\n\n\n\nJun 1, 2023\n\n\nBhargav Kowshik\n\n\n\n\n\n\nNo matching items"
+    "text": "🐶 Image classifiers . fastai\n\n\n\n\n\n\n\ndeep learning\n\n\nfastai\n\n\ncomputer vision\n\n\n\n\n\n\n\n\n\n\n\nAug 9, 2023\n\n\nBhargav Kowshik\n\n\n\n\n\n\n  \n\n\n\n\n👋 Hello, world!\n\n\n\n\n\n\n\n\n\n\n\n\nAug 8, 2023\n\n\nBhargav Kowshik\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "learning.html",
-    "href": "learning.html",
+    "objectID": "learning/index.html",
+    "href": "learning/index.html",
     "title": "Learning",
     "section": "",
-    "text": "June, 2023\n\nAn Introduction to Statistical Learning - 2nd edition\nPractical Deep Learning for Coders - Fast.ai\nData Structures & Algorithms - AlgoExpert"
+    "text": "July - September, 2023\n\nPractical Deep Learning for Coders - fastai"
   },
   {
-    "objectID": "posts/building-an-image-classifier/index.html",
-    "href": "posts/building-an-image-classifier/index.html",
-    "title": "Fast AI . Building an Image Classifier",
+    "objectID": "blog/posts/2023-08-08-hello-world/index.html",
+    "href": "blog/posts/2023-08-08-hello-world/index.html",
+    "title": "👋 Hello, world!",
     "section": "",
-    "text": "Images from DuckDuckGo: Healthy food / Junk food\nAs part of Lesson 1 of the Practical Deep Learning for Coders course by Fast AI, I built some example classifiers."
-  },
-  {
-    "objectID": "posts/building-an-image-classifier/index.html#step-1.-download-images",
-    "href": "posts/building-an-image-classifier/index.html#step-1.-download-images",
-    "title": "Fast AI . Building an Image Classifier",
-    "section": "Step 1. Download images",
-    "text": "Step 1. Download images\nFor these examples, images are downloaded from DuckDuckGo using the helper function ddg_images which takes in a search term and returns a list of image URLs. Another helper function download_images downloads images from these URLs. Images of each class (Ex: Cat) are part of separate directories.\ndef search_images(term, max_images=200):\n    \"\"\"Search for images for the given text.\"\"\"\n    print(f\"Searching for '{term}'\")\n    return L(ddg_images(term, max_results=max_images)).itemgot('image')\n\n# Download images for each of the classes into it's own directory.\nclasses = ['rice', 'wheat']\npath = Path('cereals')\n\nfor c in classes:\n    dest = (path/c)\n    dest.mkdir(exist_ok=True, parents=True)\n    download_images(dest, urls=search_images(f'{c}'))\n    resize_images(path/c, max_size=400, dest=path/c)"
-  },
-  {
-    "objectID": "posts/building-an-image-classifier/index.html#step-2.-create-datasets",
-    "href": "posts/building-an-image-classifier/index.html#step-2.-create-datasets",
-    "title": "Fast AI . Building an Image Classifier",
-    "section": "Step 2. Create datasets",
-    "text": "Step 2. Create datasets\nImages in directories are turned into tow datasets one for model training and another for model validation using the DataBlock class.\ndls = DataBlock(\n    blocks=(ImageBlock, CategoryBlock),\n    get_items=get_image_files,\n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=[Resize(192, method='squish')]\n).dataloaders(path, bs=32)"
-  },
-  {
-    "objectID": "posts/building-an-image-classifier/index.html#fine-tune-pre-trained-model",
-    "href": "posts/building-an-image-classifier/index.html#fine-tune-pre-trained-model",
-    "title": "Fast AI . Building an Image Classifier",
-    "section": "3. Fine tune pre-trained model",
-    "text": "3. Fine tune pre-trained model\nNext, we download pre-trained weights for a ResNet18 model and fine-tune the model on our dataset.\n\n\n\nModel fine tuning\n\n\nlearn = vision_learner(dls, resnet18, metrics=error_rate)\nlearn.fine_tune(10)"
-  },
-  {
-    "objectID": "posts/building-an-image-classifier/index.html#predict-class-label",
-    "href": "posts/building-an-image-classifier/index.html#predict-class-label",
-    "title": "Fast AI . Building an Image Classifier",
-    "section": "4. Predict class label",
-    "text": "4. Predict class label\nFinally, we make use of the predict method of the model class to get prediction on sample images.\n\n\n\n\n\n\nHealthy food\n\n\n\n\n\n\n\nJunk food\n\n\n\n\n\nurl = search_images(classes[0], max_images=5)[0]\n\ndestination = 'sample.jpg'\ndownload_url(url, destination, show_progress=False)\n\nlabel, _, probability = learn.predict(PILImage.create('sample.jpg'))\nprint(\"This is: {}\".format(label))\nprint(\"Probability it's a {} is: {:.4f}\".format(classes[0], probability[0]))\n\nim = Image.open(destination)\nim.to_thumb(256,256)"
-  },
-  {
-    "objectID": "posts/building-an-image-classifier/index.html#examples",
-    "href": "posts/building-an-image-classifier/index.html#examples",
-    "title": "Fast AI . Building an Image Classifier",
-    "section": "Examples",
-    "text": "Examples\n\n\n\n\n\n\nShip / Aeroplane\n\n\n\n\n\n\n\nHappy face / Sad face\n\n\n\n\n\n\n\n\n\nRice / Wheat\n\n\n\n\n\n\n\nBicycle / Car"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Hello, world!",
-    "section": "",
-    "text": "This is my first post. Welcome!"
+    "text": "Hello, world!"
   }
 ]

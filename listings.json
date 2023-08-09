@@ -1,9 +1,9 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/posts/building-an-image-classifier/index.html",
-      "/posts/welcome/index.html"
+      "/blog/posts/2023-08-09-image-classifiers-fastai/index.html",
+      "/blog/posts/2023-08-08-hello-world/index.html"
     ]
   }
 ]

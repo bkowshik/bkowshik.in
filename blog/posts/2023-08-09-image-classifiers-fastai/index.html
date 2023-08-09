@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Bhargav Kowshik">
-<meta name="dcterms.date" content="2023-06-08">
+<meta name="dcterms.date" content="2023-08-09">
 
-<title>Bhargav Kowshik - Fast AI . Building an Image Classifier</title>
+<title>Bhargav Kowshik - 🐶 Image classifiers . fastai</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,22 +59,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,17 +102,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Bhargav Kowshik</span>
     </a>
   </div>
@@ -123,21 +123,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../learning.html" rel="" target="">
+    <a class="nav-link" href="../../../learning/index.html" rel="" target="">
  <span class="menu-text">Learning</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html" rel="" target="">
+    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
+    <a class="nav-link" href="../../../about/index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -151,10 +151,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Fast AI . Building an Image Classifier</h1>
+      <h1 class="title">🐶 Image classifiers . fastai</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">deep learning</div>
                 <div class="quarto-category">fastai</div>
+                <div class="quarto-category">computer vision</div>
               </div>
                   </div>
   </div>
@@ -172,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 8, 2023</p>
+        <p class="date">August 9, 2023</p>
       </div>
     </div>
     
@@ -183,40 +184,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#building-an-image-classifier" id="toc-building-an-image-classifier" class="nav-link active" data-scroll-target="#building-an-image-classifier">Building an Image Classifier</a>
-  <ul class="collapse">
-  <li><a href="#step-1.-download-images" id="toc-step-1.-download-images" class="nav-link" data-scroll-target="#step-1.-download-images">Step 1. Download images</a></li>
-  <li><a href="#step-2.-create-datasets" id="toc-step-2.-create-datasets" class="nav-link" data-scroll-target="#step-2.-create-datasets">Step 2. Create datasets</a></li>
-  <li><a href="#fine-tune-pre-trained-model" id="toc-fine-tune-pre-trained-model" class="nav-link" data-scroll-target="#fine-tune-pre-trained-model">3. Fine tune pre-trained model</a></li>
-  <li><a href="#predict-class-label" id="toc-predict-class-label" class="nav-link" data-scroll-target="#predict-class-label">4. Predict class label</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  </ul></li>
-  <li><a href="#hyperlinks" id="toc-hyperlinks" class="nav-link" data-scroll-target="#hyperlinks">Hyperlinks</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
 
-<div class="column-screen-inset">
+<div class="column-body-outset">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/healthy-food-vs-junk-food-samples.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/healthy-food-vs-junk-food-samples.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Images from DuckDuckGo: Healthy food / Junk food</figcaption>
 </figure>
 </div>
 </div>
 <p>As part of Lesson 1 of the <a href="https://course.fast.ai">Practical Deep Learning for Coders course by Fast AI</a>, I built some example classifiers.</p>
-<section id="building-an-image-classifier" class="level1">
-<h1>Building an Image Classifier</h1>
 <p>The basic steps in building a classifier are:</p>
 <ol type="1">
 <li>Download images</li>
@@ -258,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Next, we download pre-trained weights for a ResNet18 model and fine-tune the model on our dataset.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/happy-face-vs-sad-face-performance.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/happy-face-vs-sad-face-performance.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Model fine tuning</figcaption>
 </figure>
 </div>
@@ -273,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/healthy-food-prediction.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/healthy-food-prediction.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Healthy food</figcaption>
 </figure>
 </div>
@@ -281,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/junk-food-prediction.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/junk-food-prediction.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Junk food</figcaption>
 </figure>
 </div>
@@ -307,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/ship-vs-aeroplane-samples.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/ship-vs-aeroplane-samples.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Ship / Aeroplane</figcaption>
 </figure>
 </div>
@@ -315,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/happy-face-vs-sad-face-samples.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/happy-face-vs-sad-face-samples.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Happy face / Sad face</figcaption>
 </figure>
 </div>
@@ -325,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/rice-vs-wheat-samples.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/rice-vs-wheat-samples.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Rice / Wheat</figcaption>
 </figure>
 </div>
@@ -333,14 +316,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../static/images/building-an-image-classifier/bicycle-vs-car-samples.png" class="img-fluid figure-img"></p>
+<p><img src="../../../static/images/building-an-image-classifier/bicycle-vs-car-samples.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Bicycle / Car</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="hyperlinks" class="level1">
 <h1>Hyperlinks</h1>
