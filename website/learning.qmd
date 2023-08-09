@@ -1,9 +1,0 @@
----
-title: "Learning"
----
-
-
-### June, 2023
-- [An Introduction to Statistical Learning - 2nd edition](https://www.statlearning.com)
-- [Practical Deep Learning for Coders - Fast.ai](https://course.fast.ai)
-- [Data Structures & Algorithms - AlgoExpert](https://www.algoexpert.io/product)

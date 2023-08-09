@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Bhargav Kowshik"
 image: profile.jpg
 about:
   template: jolla
@@ -16,5 +16,5 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com/in/bkowshik/
-
+title-block-banner: false
 ---

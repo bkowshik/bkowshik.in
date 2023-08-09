@@ -1,7 +1,0 @@
----
-title: "Hello, world!"
-author: "Bhargav Kowshik"
-date: "2023-06-01"
----
-
-This is my first post. Welcome!

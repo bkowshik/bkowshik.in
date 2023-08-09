@@ -1,0 +1,8 @@
+---
+title: "Learning"
+title-block-banner: true
+---
+
+
+### July - September, 2023
+1. [Practical Deep Learning for Coders - fastai](https://course.fast.ai)
