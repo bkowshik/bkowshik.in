@@ -1,0 +1,24 @@
+---
+title: "Progression on Kaggle"
+title-block-banner: true
+format:
+  html:
+    page-layout: full
+---
+
+
+## Hyperlinks
+- [Kaggle Progression System](https://www.kaggle.com/progression/): Kaggle's Progression System uses performance tiers to track your growth as a data scientist on Kaggle. Along the way, you’ll earn medals for your achievements and compete for data science glory on live leaderboards.
+
+
+## Progression
+
+::: {layout-ncol=3}
+![On 2023-08-10 (Thu)](/static/images/progression-on-kaggle/2023-08-10-kaggle-progression.png)
+
+![On 2023-07-12 (Wed)](/static/images/progression-on-kaggle/2023-07-12-kaggle-progression.jpeg)
+
+![On 2023-07-06 (Wed)](/static/images/progression-on-kaggle/2023-07-06-kaggle-progression.jpeg)
+
+![On 2023-06-28 (Wed)](/static/images/progression-on-kaggle/2023-06-28-kaggle-progression.jpeg)
+:::

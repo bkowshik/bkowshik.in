@@ -6,3 +6,4 @@ title-block-banner: true
 
 ### July - September, 2023
 1. [Practical Deep Learning for Coders - fastai](https://course.fast.ai)
+2. [LLM Science Exam - Use LLMs to answer difficult science questions](https://www.kaggle.com/competitions/kaggle-llm-science-exam)
