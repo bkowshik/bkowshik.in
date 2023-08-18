@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.126">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bhargav Kowshik">
+<meta name="dcterms.date" content="2023-08-18">
+
+<title>Bhargav Kowshik - 📝 ChatGPT Prompt Engineering</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Bhargav Kowshik</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../learning/index.html" rel="" target="">
+ <span class="menu-text">Learning</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about/index.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">📝 ChatGPT Prompt Engineering</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">prompt engineering</div>
+                <div class="quarto-category">mooc</div>
+                <div class="quarto-category">deeplearning.ai</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Bhargav Kowshik </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 18, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
+  <li><a href="#guidelines-for-prompting" id="toc-guidelines-for-prompting" class="nav-link" data-scroll-target="#guidelines-for-prompting">2. Guidelines for prompting</a>
+  <ul class="collapse">
+  <li><a href="#iterative-prompt-development" id="toc-iterative-prompt-development" class="nav-link" data-scroll-target="#iterative-prompt-development">2.1 Iterative prompt development</a></li>
+  </ul></li>
+  <li><a href="#llm-use-cases" id="toc-llm-use-cases" class="nav-link" data-scroll-target="#llm-use-cases">3. LLM use-cases</a>
+  <ul class="collapse">
+  <li><a href="#summarization" id="toc-summarization" class="nav-link" data-scroll-target="#summarization">3.1 Summarization</a></li>
+  <li><a href="#information-extraction" id="toc-information-extraction" class="nav-link" data-scroll-target="#information-extraction">3.2 Information extraction</a></li>
+  <li><a href="#tagging" id="toc-tagging" class="nav-link" data-scroll-target="#tagging">3.3 Tagging</a></li>
+  <li><a href="#expanding" id="toc-expanding" class="nav-link" data-scroll-target="#expanding">3.4 Expanding</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><img src="../../../static/images/chatgpt-prompt-engineering/wordcloud.png" class="img-fluid"></p>
+<p>Course: <a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/">ChatGPT Prompt Engineering for Developer . DeepLearning.AI</a> by Isa Fulford and Andrew Ng.</p>
+<hr>
+<section id="introduction" class="level1">
+<h1>1. Introduction</h1>
+<blockquote class="blockquote">
+<p>The power of Large Language Models (LLMs) as a developer tool, using API calls to LLMs to quickly build software applications is still very <strong>under-appreciated</strong>.</p>
+</blockquote>
+<p>There are 2 types of Large Language Models (LLMs):</p>
+<ol type="1">
+<li>Base LLMs.</li>
+<li>Instruction Tuned LLMs.</li>
+</ol>
+<p>Given an input prompt, base LLMs are trained to predict the next word. Ex: <a href="https://huggingface.co/meta-llama/Llama-2-7b-hf">meta-llama/Llama-2-7b-hf</a>.</p>
+<p>Instruction tuned LLMs are built on top of base LLMs to follow instructions using techniques of supervised fine-tuning (SFT) and reinforcement learning using human feedback (RLHF). Ex: <a href="https://huggingface.co/meta-llama/Llama-2-7b-chat-hf">meta-llama/Llama-2-7b-chat-hf</a> and <a href="https://platform.openai.com/docs/guides/gpt">gpt-3.5-turbo from OpenAI</a>.</p>
+<p>Below is an example to generate text from a prompt using OpenAI <code>gpt-turbo-3.5</code> model.</p>
+<div id="cell-5" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="st">'You are a helpful assistant.'</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>user_prompt <span class="op">=</span> <span class="st">'Large Language Models (LLMs) are'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>messages <span class="op">=</span> [</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'role'</span>: <span class="st">'system'</span>, <span class="st">'content'</span>: system_prompt},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'role'</span>: <span class="st">'user'</span>, <span class="st">'content'</span>: user_prompt}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.ChatCompletion.create(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">'gpt-3.5-turbo'</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>messages,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    max_tokens<span class="op">=</span><span class="dv">25</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{
+  "id": "chatcmpl-7orEa0AuwrwkKPWGWsBhIO5n0d5Jx",
+  "object": "chat.completion",
+  "created": 1692355388,
+  "model": "gpt-3.5-turbo-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "advanced natural language processing models that are capable of generating human-like text based on a given prompt or input. These models are trained"
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 25,
+    "completion_tokens": 25,
+    "total_tokens": 50
+  }
+}</code></pre>
+</div>
+</div>
+</section>
+<section id="guidelines-for-prompting" class="level1">
+<h1>2. Guidelines for prompting</h1>
+<p>Important principles for effective prompting are:</p>
+<ol type="1">
+<li>Write clear and specific instructions. ✍️</li>
+<li>When necessary, give the model time to think. 🤔</li>
+</ol>
+<p>Tactics for writing clear and specific instructions are:</p>
+<ol type="1">
+<li>Longer prompts provide more clarity and context to the model.</li>
+<li>Delimiters clearly indicate distinct parts in the input. Ex: Triple back-ticks.</li>
+<li>Asking for structured outputs makes consuming them easier downstream. Ex: HTML, JSON.</li>
+<li>Check whether the conditions/assumptions required to do the task are satisfied.</li>
+<li>Give examples before asking the model to perform the task.</li>
+</ol>
+<p>Tactics to give the model time to think are:</p>
+<ol type="1">
+<li>Explicitly specify the steps required to complete the task.</li>
+<li>Instruct the model to work out it’s own solution first.</li>
+</ol>
+<p>Below is an example incorporating some of these tactics for effective prompting.</p>
+<div id="cell-7" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>menu <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">Masala Dosa ₹100</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">Idli ₹30</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">Vada ₹40</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">Khara Bath ₹30</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">Kesari Bath ₹50</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">Coffee ₹15</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">Tea ₹15</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">Milk ₹10</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">You are order bot, an automated service to collect and process orders at a South Indian restaurant.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">Return the order as a JSON with keys customer_name, ordered_items as an array with name and price, tax and the final_amount.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ss">The final amount should add up the to sum of the individual item amounts and the tax of ₹8.</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ss">Add a property called ai_generated and set it's value to true.</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">The restaurant menu is between triple back-ticks.</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">When an item is not on the menu, record it with an additional attribute called unavailable with value true and set price to zero.</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span><span class="sc">{</span>menu<span class="sc">}</span><span class="ss">```</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>user_prompt <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">Aneesh would like one Dosa, some fries, and a strong filter coffee.</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>messages <span class="op">=</span> [</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'role'</span>: <span class="st">'system'</span>, <span class="st">'content'</span>: system_prompt},</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'role'</span>: <span class="st">'user'</span>, <span class="st">'content'</span>: user_prompt},</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.ChatCompletion.create(</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">'gpt-3.5-turbo'</span>,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>messages,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{
+  "customer_name": "Aneesh",
+  "ordered_items": [
+    {
+      "name": "Masala Dosa",
+      "price": 100
+    },
+    {
+      "name": "Fries",
+      "price": 0,
+      "unavailable": true
+    },
+    {
+      "name": "Coffee",
+      "price": 15
+    }
+  ],
+  "tax": 8,
+  "final_amount": 123,
+  "ai_generated": true
+}</code></pre>
+</div>
+</div>
+<section id="iterative-prompt-development" class="level2">
+<h2 class="anchored" data-anchor-id="iterative-prompt-development">2.1 Iterative prompt development</h2>
+<p>Key to becoming an effective prompt engineer is to have a good process to develop effective prompts:</p>
+<ol type="1">
+<li>Try something, the first prompt for what you want to do.</li>
+<li>Analyze where the results does not give what you want.</li>
+<li>Clarify the instructions; giving more time for the model to think.
+<ul>
+<li>Zero shot learning when training examples are not given.</li>
+<li>Few shot learning when some training examples are given as context.</li>
+</ul></li>
+<li>Refine prompts with a batch of inputs instead of just one.</li>
+</ol>
+</section>
+</section>
+<section id="llm-use-cases" class="level1">
+<h1>3. LLM use-cases</h1>
+<ol type="1">
+<li>Summarization: Convert large volumes of text into smaller yet relavant summaries.</li>
+<li>Inferring: Perform analysis on text like identifying sentiment, extracting order details, labelling with topics.</li>
+<li>Transforming: Turn text from one format to another for translation, spelling correction, modifying tone.</li>
+<li>Expanding: Given some text, generate an even larger form of text.</li>
+</ol>
+<div id="cell-13" class="cell" data-execution_count="6">
+<details>
+<summary>NOTE: Click here to view the reviews dataset used in the examples below.</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Source: https://goo.gl/maps/vc8ohkr3q6EVwEko6</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reviews <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">Jaishri Shankar</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">4 days ago</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">I have been attending sparsh yoga classes for the past 1 year and it has been a  rejuvenating learning experience physically and mentally. All credits to Aparna for this wonderful experience whose expertise creates an atmosphere of calmness and a path to self-discovery.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">Thanks sparsh yoga for this blissful journey</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">Ramesh Kanuri</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">2 weeks ago</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">Sparsh Yoga Institute is a very good place to learn and practice Yoga. Sarangi Madam is highly knowledgeable, experienced and supportive. I saw a good amount of difference within 3 months of my journey here. Overall, it had an excellent vibe and a lot of positivity and was the best place for the practice.</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="st">Bhargav Kowshik</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="st">2 weeks ago</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="st">Yoga classes at Sparsh Yoga with Suraksha mam has become an essential part of my daily routine. It has positively transformed my physical, mental, and emotional well-being. The quality of my practice has seen a remarkable change thanks to timely and clear corrections from Suraksha mam; things like how one enters and exits from asanas, being conscious about breathing, stretching gently beyond one's limits, and relavant theory behind the practices. Mam makes sure there is healthy variety in our practices; Reverse Surya Namaskara, Pair Yoga, Wall Yoga, Meditation, etc. All this make me eagerly attend Yoga classes at the center everyday. Thank you very much Suraksha mam and Sparsh Yoga.</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="st">Bidyarani Mainaly</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="st">3 months ago</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="st">Really good place to learn yoga and calm your mind. Reasonable price and great quality of training. Special shout out to Suraksha, she is an excellent yoga instructor with correct knowledge and skills. I was able to increase my weight because of her guidance. I'm able to focus on my work and studies because of yoga practice.</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="st">KUSHAL M</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="st">3 days ago</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="st">One of the best yoga center i have ever seen,I am doing yoga from past 3 months, i have increased my weight And I'm able to focus on my studies because of yoga practices.</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="st">Thank you Suraksha mam and Sparsh Yoga.</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="st">Healy Mehta</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="st">4 months ago</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="st">Perfect for beginners who want to learn about the yoga practice. Her attention to detail during our healing yoga session is unmatched. I felt a strong sense of calm, and every moment throughout my session was met with peace and tranquility. It is a great experience!!</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="st">Niharika Ramakrishna</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="st">a week ago</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="st">Started my yoga journey with sparsh yoga since may and it's undoubtedly one of the best decisions made , I' can see the changes for myself mentally and physically i struggled putting on weight now I can easily eat good amount of food and balance my weight I've been attending morning 10 am batch with aparna mam she's been an amazing mentor she constantly gives attention to everybody and corrects their postures and motivates us</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="st">Arpitha B</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="st">2 weeks ago</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="st">I have been going to sparsh yoga from 6months,in the evening batch ,my yoga instructor is suraksha mam,she teaches very well and gives one on one attention.Suraksha mam also explains the benefits of the asanas which is very essential to understand for better results.I enjoy coming to the evening batch and also hope in learning</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="st">advanced asanas soon.Thanks suraksha mam for your support and also the entire team of sparsh.</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="st">Roopa Muthraju</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="st">a week ago</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="st">This is the place where you can keep yourself fit and healthy ,Aparna is also very friendly teacher  and I got a lot of benefits from Sparsh Yoga Center. Thank you</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="st">sowmya das</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="st">a week ago</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="st">Very friendly teachers they give advices based on the concern we have, good environment to learn yoga</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="st">Kavya Madusudan</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="st">6 months ago</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="st">It's wonderful to learn yoga from Saranga Ma'am.I am happy to be a part of Sparsha yoga centre. Around two years of yoga learning under Saranga Ma'am has helped me in loosing weight, reduced Thyroid issues and lots of positive energy.Thankyou so much Saranga Ma'am.</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="st">saraswathy cs</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="st">4 months ago</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="st">I have been taking personal yoga sessions from Ms. Saranga since 2019. I have seen amazing results in her training. Thank you for the great job.</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="st">RAM Mehta</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="st">Saranga Maam Best trainer to help you achieve your goal and make you feel better about your self. Helped me alot in my postpartum weight and help in movement</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="st">Shwetha Suhas</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="st">6 months ago</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="st">It's been 2 years, happy to say that i m  one of the memeber of Sparsh yoga. I was suffering from asthma from childhood, after practicing yoga it helped me a lot to come out of this,  it's reduced now and i feel much better. Being a runner,  I must say  yoga gives strength and stamina. It was wonderful experience to do 108 Suryanamaskara on the auspicious day of  Ratha sapthami.  Thank u so much Saranga mam for the opportunity  and for being our Guru.</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="st">sushma vimmidi</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="st">7 months ago</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="st">Sparsh yoga is one of the best place to learn yoga for all age groups and body type. I joined the class about 2 months back and the amount of stamina I build is simply amazing. I have hypertion due to hereditary, in just less than 10days of yoga practice my BP is under control. A special thanks to the trainer Ms Aparna, she knows exactly what each one of us need and our weak points how we can overcome and go beyond. Thanks Sparsh family for running such an institution which is benefiting a lot of us all over the world. Namaste 🙏</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="st">Aditya Bhargava</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="st">2 weeks ago</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="st">It is the best Yoga center in South Bangalore. Instructors are great especially Suraksha.</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="st">Prathibha Jakkali</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="st">6 months ago</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="st">Hi, I am Prathibha where I am  taking yoga class  from saranga ma'am from last  1 year. Under her guidelines now I have balanced my life where I was having knee issues where i was not able to walk prooerly. After doing all the yoga for knee exercises,i am fit and fine now. I am able to walk properly. Thanks to saranga ma'am</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="st">Gayathri Rakesh</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="st">7 months ago</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="st">I have been doing yoga at sparsh yoga centre from 9 months .10 o'clock batch and my yoga guru is Aparna she is such a amazing Guru gives individual attention , I had PCOD problem I have been maintaining the same weight now and it's such a wonderful feeling after yoga with aparna . I am  feeling so good about myself everyday  now  , I would like to thank sparsh yoga center. Aparna i would love to be fit and fine with ur instructions and help  forever ♾️ thank you so much.</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="st">Gajendrachar m M</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="st">11 months ago</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="st">I Love this Yoga center 💛 Sarangi Mam is excellent in teaching Yoga and her experience level is truly awesome!!  I have been attending the classes here for almost 3 months now and the overall experiences are amazing!! Highly recommend this place to learn Yoga and this centre can be life changing and a wonderful experience!! …</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="st">Girish Vemulkar</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="st">a year ago</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="st">I was motivated by my wife to join yoga. It has been more than 6 months now and it's changed my life completely. At Sparsh , specially Saranga ma'am, focuses on everybody and every aspect of your needs and progress. Thanks to her I have lost almost 5kgs and counting. And the quality of my mental health and overall health has improved a lot. She has a great skill set to cater to individual needs. I would highly recommend this institute to everyone.</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="summarization" class="level2">
+<h2 class="anchored" data-anchor-id="summarization">3.1 Summarization</h2>
+<div id="cell-16" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="st">'You are a helpful professional assistant.'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>user_prompt <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">Reviews about a Yoga center are between triple backticks.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">First proofread and anonymize the reviews taking away names of reviewers as well as the teachers at the center.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">Next, summarize it as an 3 item ordered list, each not more than 25 words to highlight the topics brought up in the reviews.</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span><span class="sc">{</span>reviews<span class="sc">}</span><span class="ss">```</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.ChatCompletion.create(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">'gpt-3.5-turbo'</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[{<span class="st">'role'</span>: <span class="st">'system'</span>, <span class="st">'content'</span>: system_prompt}, {<span class="st">'role'</span>: <span class="st">'user'</span>, <span class="st">'content'</span>: user_prompt}],</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Summary:
+
+1. Rejuvenating Experience: The center creates a calm atmosphere and offers expert instruction, leading to physical and mental rejuvenation.
+2. Knowledgeable and Supportive Teachers: The instructors are highly knowledgeable, experienced, and provide individual attention, resulting in noticeable improvements in a short time.
+3. Positive Transformation: Students experience positive changes in their physical, mental, and emotional well-being, including weight management, increased focus, and improved overall health.</code></pre>
+</div>
+</div>
+</section>
+<section id="information-extraction" class="level2">
+<h2 class="anchored" data-anchor-id="information-extraction">3.2 Information extraction</h2>
+<div id="cell-19" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="st">'You are a helpful professional assistant.'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>user_prompt <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ss">Reviews about a Yoga center are between triple backticks.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ss">Proofread the reviews and extract the names of teachers at the Yoga center in ascending order.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span><span class="sc">{</span>reviews<span class="sc">}</span><span class="ss">```</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.ChatCompletion.create(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">'gpt-3.5-turbo'</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[{<span class="st">'role'</span>: <span class="st">'system'</span>, <span class="st">'content'</span>: system_prompt}, {<span class="st">'role'</span>: <span class="st">'user'</span>, <span class="st">'content'</span>: user_prompt}],</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The names of teachers at the Yoga center in ascending order are:
+1. Aparna
+2. Sarangi
+3. Suraksha</code></pre>
+</div>
+</div>
+</section>
+<section id="tagging" class="level2">
+<h2 class="anchored" data-anchor-id="tagging">3.3 Tagging</h2>
+<div id="cell-22" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="st">'You are a helpful professional assistant.'</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>user_prompt <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ss">Reviews about a Yoga center are between triple backticks.</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ss">Proofread the reviews and identify the top 10 qualities of the Yoga center along with the count of reviews that mention that quality.</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ss">Sort the list in descending order of count of reviews.</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span><span class="sc">{</span>reviews<span class="sc">}</span><span class="ss">```</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.ChatCompletion.create(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">'gpt-3.5-turbo'</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[{<span class="st">'role'</span>: <span class="st">'system'</span>, <span class="st">'content'</span>: system_prompt}, {<span class="st">'role'</span>: <span class="st">'user'</span>, <span class="st">'content'</span>: user_prompt}],</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top 10 Qualities of the Yoga center:
+
+1. Experienced and Knowledgeable Instructors (Count: 9)
+2. Personalized Attention and Corrective Guidance (Count: 8)
+3. Positive Environment and Vibe (Count: 7)
+4. Transformational and Life-changing Experience (Count: 6)
+5. Health Benefits and Weight Management (Count: 5)
+6. Focus on Breathing and Mindfulness (Count: 4)
+7. Variety in Yoga Practices and Asanas (Count: 3)
+8. Friendly and Supportive Teachers (Count: 2)
+9. Reasonable Price and Value for Money (Count: 1)
+10. Improvement in Mental and Emotional Well-being (Count: 1)
+
+The list is sorted in descending order of the count of reviews mentioning each quality.</code></pre>
+</div>
+</div>
+</section>
+<section id="expanding" class="level2">
+<h2 class="anchored" data-anchor-id="expanding">3.4 Expanding</h2>
+<div id="cell-25" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> <span class="st">'You are a helpful professional assistant.'</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>user_prompt <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ss">Reviews about a Yoga center are between triple backticks.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">Proofread and anonymize the reviews taking away names of reviewers as well as the teachers at the center.</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">Use that to write a Haiku.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">```</span><span class="sc">{</span>reviews<span class="sc">}</span><span class="ss">```</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.ChatCompletion.create(</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">'gpt-3.5-turbo'</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[{<span class="st">'role'</span>: <span class="st">'system'</span>, <span class="st">'content'</span>: system_prompt}, {<span class="st">'role'</span>: <span class="st">'user'</span>, <span class="st">'content'</span>: user_prompt}],</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rejuvenating bliss,
+Expert guidance guides the path,
+Peace and strength within.</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      try { hash = new URL(url).hash; } catch {}
+      const id = hash.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note !== null) {
+        try {
+          const html = processXRef(id, note);
+          instance.setContent(html);
+        } finally {
+          instance.enable();
+          instance.show();
+        }
+      } else {
+        // See if we can fetch this
+        fetch(url.split('#')[0])
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.getElementById(id);
+          console.log(htmlDoc.body.innerHTML);
+          if (note !== null) {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Built with ❤️ from Bengaluru, India</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

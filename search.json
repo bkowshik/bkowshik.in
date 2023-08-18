@@ -4,14 +4,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "👋 Hello, world!\n\n\n\n\n\n\n\n\n\n\n\n\nAug 8, 2023\n\n\nBhargav Kowshik\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "learning/index.html",
-    "href": "learning/index.html",
-    "title": "Learning",
-    "section": "",
-    "text": "July - September, 2023\n\nPractical Deep Learning for Coders - fastai\nLLM Science Exam - Use LLMs to answer difficult science questions"
+    "text": "📝 ChatGPT Prompt Engineering\n\n\n\n\n\n\n\nprompt engineering\n\n\nmooc\n\n\ndeeplearning.ai\n\n\n\n\n\n\n\n\n\n\n\nAug 18, 2023\n\n\nBhargav Kowshik\n\n\n\n\n\n\n  \n\n\n\n\n👋 Hello, world!\n\n\n\n\n\n\n\n\n\n\n\n\nAug 8, 2023\n\n\nBhargav Kowshik\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "competitions/progression-on-kaggle/index.html",
@@ -33,6 +26,55 @@
     "title": "Progression on Kaggle",
     "section": "Progression",
     "text": "Progression\n\n\n\n\n\n\nOn 2023-08-10 (Thu)\n\n\n\n\n\n\n\nOn 2023-07-12 (Wed)\n\n\n\n\n\n\n\nOn 2023-07-06 (Wed)\n\n\n\n\n\n\n\n\n\nOn 2023-06-28 (Wed)"
+  },
+  {
+    "objectID": "learning/index.html",
+    "href": "learning/index.html",
+    "title": "Learning",
+    "section": "",
+    "text": "July - September, 2023\n\nPractical Deep Learning for Coders - fastai\nLLM Science Exam - Use LLMs to answer difficult science questions"
+  },
+  {
+    "objectID": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html",
+    "href": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html",
+    "title": "📝 ChatGPT Prompt Engineering",
+    "section": "",
+    "text": "Course: ChatGPT Prompt Engineering for Developer . DeepLearning.AI by Isa Fulford and Andrew Ng."
+  },
+  {
+    "objectID": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#iterative-prompt-development",
+    "href": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#iterative-prompt-development",
+    "title": "📝 ChatGPT Prompt Engineering",
+    "section": "2.1 Iterative prompt development",
+    "text": "2.1 Iterative prompt development\nKey to becoming an effective prompt engineer is to have a good process to develop effective prompts:\n\nTry something, the first prompt for what you want to do.\nAnalyze where the results does not give what you want.\nClarify the instructions; giving more time for the model to think.\n\nZero shot learning when training examples are not given.\nFew shot learning when some training examples are given as context.\n\nRefine prompts with a batch of inputs instead of just one."
+  },
+  {
+    "objectID": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#summarization",
+    "href": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#summarization",
+    "title": "📝 ChatGPT Prompt Engineering",
+    "section": "3.1 Summarization",
+    "text": "3.1 Summarization\n\nsystem_prompt = 'You are a helpful professional assistant.'\nuser_prompt = f\"\"\"\nReviews about a Yoga center are between triple backticks.\nFirst proofread and anonymize the reviews taking away names of reviewers as well as the teachers at the center.\nNext, summarize it as an 3 item ordered list, each not more than 25 words to highlight the topics brought up in the reviews.\n\n```{reviews}```\n\"\"\"\n\nresponse = openai.ChatCompletion.create(\n    model='gpt-3.5-turbo',\n    messages=[{'role': 'system', 'content': system_prompt}, {'role': 'user', 'content': user_prompt}],\n    temperature=0.7,\n)\nprint(response['choices'][0]['message']['content'])\n\nSummary:\n\n1. Rejuvenating Experience: The center creates a calm atmosphere and offers expert instruction, leading to physical and mental rejuvenation.\n2. Knowledgeable and Supportive Teachers: The instructors are highly knowledgeable, experienced, and provide individual attention, resulting in noticeable improvements in a short time.\n3. Positive Transformation: Students experience positive changes in their physical, mental, and emotional well-being, including weight management, increased focus, and improved overall health."
+  },
+  {
+    "objectID": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#information-extraction",
+    "href": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#information-extraction",
+    "title": "📝 ChatGPT Prompt Engineering",
+    "section": "3.2 Information extraction",
+    "text": "3.2 Information extraction\n\nsystem_prompt = 'You are a helpful professional assistant.'\nuser_prompt = f\"\"\"\nReviews about a Yoga center are between triple backticks.\nProofread the reviews and extract the names of teachers at the Yoga center in ascending order.\n\n```{reviews}```\n\"\"\"\n\nresponse = openai.ChatCompletion.create(\n    model='gpt-3.5-turbo',\n    messages=[{'role': 'system', 'content': system_prompt}, {'role': 'user', 'content': user_prompt}],\n)\nprint(response['choices'][0]['message']['content'])\n\nThe names of teachers at the Yoga center in ascending order are:\n1. Aparna\n2. Sarangi\n3. Suraksha"
+  },
+  {
+    "objectID": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#tagging",
+    "href": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#tagging",
+    "title": "📝 ChatGPT Prompt Engineering",
+    "section": "3.3 Tagging",
+    "text": "3.3 Tagging\n\nsystem_prompt = 'You are a helpful professional assistant.'\nuser_prompt = f\"\"\"\nReviews about a Yoga center are between triple backticks.\nProofread the reviews and identify the top 10 qualities of the Yoga center along with the count of reviews that mention that quality.\nSort the list in descending order of count of reviews.\n\n```{reviews}```\n\"\"\"\n\nresponse = openai.ChatCompletion.create(\n    model='gpt-3.5-turbo',\n    messages=[{'role': 'system', 'content': system_prompt}, {'role': 'user', 'content': user_prompt}],\n)\nprint(response['choices'][0]['message']['content'])\n\nTop 10 Qualities of the Yoga center:\n\n1. Experienced and Knowledgeable Instructors (Count: 9)\n2. Personalized Attention and Corrective Guidance (Count: 8)\n3. Positive Environment and Vibe (Count: 7)\n4. Transformational and Life-changing Experience (Count: 6)\n5. Health Benefits and Weight Management (Count: 5)\n6. Focus on Breathing and Mindfulness (Count: 4)\n7. Variety in Yoga Practices and Asanas (Count: 3)\n8. Friendly and Supportive Teachers (Count: 2)\n9. Reasonable Price and Value for Money (Count: 1)\n10. Improvement in Mental and Emotional Well-being (Count: 1)\n\nThe list is sorted in descending order of the count of reviews mentioning each quality."
+  },
+  {
+    "objectID": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#expanding",
+    "href": "blog/posts/2023-08-18-chatgpt-prompt-engineering/index.html#expanding",
+    "title": "📝 ChatGPT Prompt Engineering",
+    "section": "3.4 Expanding",
+    "text": "3.4 Expanding\n\nsystem_prompt = 'You are a helpful professional assistant.'\nuser_prompt = f\"\"\"\nReviews about a Yoga center are between triple backticks.\nProofread and anonymize the reviews taking away names of reviewers as well as the teachers at the center.\nUse that to write a Haiku.\n```{reviews}```\n\"\"\"\n\nresponse = openai.ChatCompletion.create(\n    model='gpt-3.5-turbo',\n    messages=[{'role': 'system', 'content': system_prompt}, {'role': 'user', 'content': user_prompt}],\n)\nprint(response['choices'][0]['message']['content'])\n\nRejuvenating bliss,\nExpert guidance guides the path,\nPeace and strength within."
   },
   {
     "objectID": "blog/posts/2023-08-08-hello-world/index.html",
